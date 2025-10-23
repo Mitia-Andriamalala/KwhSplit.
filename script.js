@@ -3,14 +3,14 @@ let personnes = [];
 
 // Messages créatifs pour le contact Mitia
 const messagesContact = [
-    { icon: 'fa-comment-dots', texte: 'Un souci avec votre nom ?', action: 'Mitia vous écoute' },
-    { icon: 'fa-edit', texte: 'Changement de nom ?', action: 'Appelez Mitia' },
-    { icon: 'fa-tools', texte: 'Besoin de modifier ?', action: 'Mitia est là pour vous' },
-    { icon: 'fa-question-circle', texte: 'Une question ?', action: 'Mitia répond' },
-    { icon: 'fa-bullseye', texte: 'Rectification nécessaire ?', action: 'Contactez Mitia' },
-    { icon: 'fa-user-edit', texte: 'Votre nom a changé ?', action: 'Mitia s\'en occupe' },
-    { icon: 'fa-bell', texte: 'Modification de profil ?', action: 'Mitia est joignable' },
-    { icon: 'fa-hands-helping', texte: 'Besoin d\'ajuster votre nom ?', action: 'Mitia vous aide' }
+    { icon: 'fa-comment-dots', texte: 'Un souci avec votre nom ? Appelez' },
+    { icon: 'fa-edit', texte: 'Changement de nom ? Contactez' },
+    { icon: 'fa-tools', texte: 'Besoin de modifier ? Parlez à' },
+    { icon: 'fa-question-circle', texte: 'Une question ? Rejoignez' },
+    { icon: 'fa-bullseye', texte: 'Rectification nécessaire ? Appelez' },
+    { icon: 'fa-user-edit', texte: 'Votre nom a changé ? Contactez' },
+    { icon: 'fa-bell', texte: 'Modification de profil ? Sonnez' },
+    { icon: 'fa-hands-helping', texte: 'Besoin d\'aide ? Trouvez' }
 ];
 
 // Initialiser au chargement de la page
@@ -220,7 +220,7 @@ function afficherPersonnes() {
                 return `
             <div class="contact-admin" style="margin-top: 0.75rem;">
                 <i class="fas ${msg.icon} me-2"></i>
-                <span><strong>${msg.texte}</strong> ${msg.action} <a href="tel:0385599347" style="color: #6366f1; text-decoration: none; font-weight: 700;">038 55 993 47</a></span>
+                <span>${msg.texte} <strong>Mitia</strong> <a href="tel:0385599347" style="color: #6366f1; text-decoration: none; font-weight: 700;">038 55 993 47</a></span>
             </div>`;
             })()}
         `;
