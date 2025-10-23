@@ -1,1 +1,1 @@
-https://github.com/Mitia-Andriamalala/kwhSplit
+https://mitia-andriamalala.github.io/kwhSplit/
