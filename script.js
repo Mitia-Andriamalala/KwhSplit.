@@ -1,6 +1,18 @@
 // Tableau des personnes
 let personnes = [];
 
+// Messages créatifs pour le contact Mitia
+const messagesContact = [
+    { icon: 'fa-comment-dots', texte: 'Un souci avec votre nom ?', action: 'Mitia vous écoute' },
+    { icon: 'fa-edit', texte: 'Changement de nom ?', action: 'Appelez Mitia' },
+    { icon: 'fa-tools', texte: 'Besoin de modifier ?', action: 'Mitia est là pour vous' },
+    { icon: 'fa-question-circle', texte: 'Une question ?', action: 'Mitia répond' },
+    { icon: 'fa-bullseye', texte: 'Rectification nécessaire ?', action: 'Contactez Mitia' },
+    { icon: 'fa-user-edit', texte: 'Votre nom a changé ?', action: 'Mitia s\'en occupe' },
+    { icon: 'fa-bell', texte: 'Modification de profil ?', action: 'Mitia est joignable' },
+    { icon: 'fa-hands-helping', texte: 'Besoin d\'ajuster votre nom ?', action: 'Mitia vous aide' }
+];
+
 // Initialiser au chargement de la page
 document.addEventListener('DOMContentLoaded', function() {
     // Initialiser le mois et l'exemple
@@ -142,12 +154,14 @@ function updateMoisLabel() {
 }
 
 // Ajouter une personne
-function ajouterPersonne(nom = '', ancienIndex = '', nouvelIndex = '') {
+function ajouterPersonne(nom = '', ancienIndex = '', nouvelIndex = '', telephone = '', localisation = '') {
     const personne = {
         id: Date.now() + Math.random(),
         nom: nom,
         ancienIndex: ancienIndex,
         nouvelIndex: nouvelIndex,
+        telephone: telephone,
+        localisation: localisation,
         conso: 0,
         montant: 0
     };
@@ -191,10 +205,24 @@ function afficherPersonnes() {
                     <div class="result-value">${personne.montant.toLocaleString('fr-FR')} Ar</div>
                 </div>
             </div>
-            <div class="contact-admin">
-                <i class="fas fa-info-circle me-2"></i>
-                <span>Pour modifier votre nom, contactez <strong>Mitia</strong></span>
-            </div>
+            ${personne.localisation ? `
+            <div class="contact-admin" style="margin-top: 0.75rem;">
+                <i class="fas fa-map-marker-alt me-2"></i>
+                <span style="font-weight: 500;">${personne.localisation}</span>
+            </div>` : ''}
+            ${personne.telephone ? `
+            <div class="contact-admin" style="margin-top: 0.75rem;">
+                <i class="fas fa-phone me-2"></i>
+                <span><a href="tel:${personne.telephone.replace(/\s/g, '')}" style="color: #6366f1; text-decoration: none; font-weight: 600;">${personne.telephone}</a></span>
+            </div>` : ''}
+            ${(() => {
+                const msg = messagesContact[Math.floor(Math.random() * messagesContact.length)];
+                return `
+            <div class="contact-admin" style="margin-top: 0.75rem;">
+                <i class="fas ${msg.icon} me-2"></i>
+                <span><strong>${msg.texte}</strong> ${msg.action} <a href="tel:0385599347" style="color: #6366f1; text-decoration: none; font-weight: 700;">038 55 993 47</a></span>
+            </div>`;
+            })()}
         `;
         container.appendChild(card);
     });
@@ -309,6 +337,8 @@ function sauvegarderMois() {
             nom: p.nom,
             ancien: p.ancienIndex,
             nouveau: p.nouvelIndex,
+            telephone: p.telephone || '',
+            localisation: p.localisation || '',
             conso: parseFloat(p.conso.toFixed(1)),
             montant: p.montant
         }))
@@ -468,6 +498,8 @@ function chargerMois(index) {
         nom: p.nom,
         ancienIndex: p.ancien,
         nouvelIndex: p.nouveau,
+        telephone: p.telephone || '',
+        localisation: p.localisation || '',
         conso: p.conso,
         montant: p.montant
     }));
@@ -502,13 +534,13 @@ function chargerExemple() {
     document.getElementById('factureTotale').value = '191617';
 
     personnes = [
-        { id: 1, nom: 'Jessica', ancienIndex: 120.0, nouvelIndex: 125.2, conso: 0, montant: 0 },
-        { id: 2, nom: 'Narindra', ancienIndex: 200.0, nouvelIndex: 246.3, conso: 0, montant: 0 },
-        { id: 3, nom: 'Tahiry', ancienIndex: 150.0, nouvelIndex: 202.0, conso: 0, montant: 0 },
-        { id: 4, nom: 'Kambana', ancienIndex: 80.0, nouvelIndex: 115.6, conso: 0, montant: 0 },
-        { id: 5, nom: 'Mitia', ancienIndex: 300.0, nouvelIndex: 308.0, conso: 0, montant: 0 },
-        { id: 6, nom: 'Lydia', ancienIndex: 50.0, nouvelIndex: 122.6, conso: 0, montant: 0 },
-        { id: 7, nom: 'Nathalie', ancienIndex: 400.0, nouvelIndex: 446.1, conso: 0, montant: 0 }
+        { id: 1, nom: 'Jessica', ancienIndex: 120.0, nouvelIndex: 125.2, telephone: '034 93 727 56', localisation: 'Bâtiment 2 - Rez-de-chaussée', conso: 0, montant: 0 },
+        { id: 2, nom: 'Narindra', ancienIndex: 200.0, nouvelIndex: 246.3, telephone: '034 93 948 74', localisation: 'Bâtiment 2 - 1er étage', conso: 0, montant: 0 },
+        { id: 3, nom: 'Tahiry', ancienIndex: 150.0, nouvelIndex: 202.0, telephone: '034 31 412 79', localisation: 'Bâtiment 1 - 2e étage', conso: 0, montant: 0 },
+        { id: 4, nom: 'Kambana', ancienIndex: 80.0, nouvelIndex: 115.6, telephone: '038 27 522 90', localisation: 'Bâtiment 1 - 3e étage (porte gauche)', conso: 0, montant: 0 },
+        { id: 5, nom: 'Mitia', ancienIndex: 300.0, nouvelIndex: 308.0, telephone: '038 55 993 47', localisation: 'Bâtiment 1 - 3e étage (porte droite)', conso: 0, montant: 0 },
+        { id: 6, nom: 'Lydia', ancienIndex: 50.0, nouvelIndex: 122.6, telephone: '034 17 518 12', localisation: 'Bâtiment 1 - Dernier étage', conso: 0, montant: 0 },
+        { id: 7, nom: 'Nathalie', ancienIndex: 400.0, nouvelIndex: 446.1, telephone: '034 07 138 54', localisation: 'Bâtiment 1 - 4e étage', conso: 0, montant: 0 }
     ];
 
     afficherPersonnes();
