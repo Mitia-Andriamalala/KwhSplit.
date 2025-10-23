@@ -609,6 +609,6 @@ function nouveauMois() {
     showToast(
         '✨ Nouveau mois créé !',
         'Les index ont été copiés. Vous pouvez maintenant saisir les nouveaux index et la facture du mois.',
-        'success'
+        'success.'
     );
 }
