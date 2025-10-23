@@ -6,7 +6,7 @@ const messagesContact = [
     { icon: 'fa-comment-dots', texte: 'Un souci avec votre nom ? Appelez' },
     { icon: 'fa-edit', texte: 'Changement de nom ? Contactez' },
     { icon: 'fa-tools', texte: 'Besoin de modifier ? Parlez à' },
-    { icon: 'fa-question-circle', texte: 'Une question ? Rejoignez' },
+    { icon: 'fa-question-circle', texte: 'Une question ? Contactez' },
     { icon: 'fa-bullseye', texte: 'Rectification nécessaire ? Appelez' },
     { icon: 'fa-user-edit', texte: 'Votre nom a changé ? Contactez' },
     { icon: 'fa-bell', texte: 'Modification de profil ? Sonnez' },
