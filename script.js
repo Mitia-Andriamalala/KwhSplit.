@@ -537,7 +537,7 @@ function chargerExemple() {
         { id: 1, nom: 'Jessica', ancienIndex: 120.0, nouvelIndex: 125.2, telephone: '034 93 727 56', localisation: 'Bâtiment 2 - Rez-de-chaussée', conso: 0, montant: 0 },
         { id: 2, nom: 'Narindra', ancienIndex: 200.0, nouvelIndex: 246.3, telephone: '034 93 948 74', localisation: 'Bâtiment 2 - 1er étage', conso: 0, montant: 0 },
         { id: 3, nom: 'Tahiry', ancienIndex: 150.0, nouvelIndex: 202.0, telephone: '034 31 412 79', localisation: 'Bâtiment 1 - 2e étage', conso: 0, montant: 0 },
-        { id: 4, nom: 'Kambana', ancienIndex: 80.0, nouvelIndex: 115.6, telephone: '038 27 522 90', localisation: 'Bâtiment 1 - 3e étage (porte gauche)', conso: 0, montant: 0 },
+        { id: 4, nom: 'Mirana & Valisoa', ancienIndex: 80.0, nouvelIndex: 115.6, telephone: '038 27 522 90', localisation: 'Bâtiment 1 - 3e étage (porte gauche)', conso: 0, montant: 0 },
         { id: 5, nom: 'Mitia', ancienIndex: 300.0, nouvelIndex: 308.0, telephone: '038 55 993 47', localisation: 'Bâtiment 1 - 3e étage (porte droite)', conso: 0, montant: 0 },
         { id: 6, nom: 'Lydia', ancienIndex: 50.0, nouvelIndex: 122.6, telephone: '034 17 518 12', localisation: 'Bâtiment 1 - Dernier étage', conso: 0, montant: 0 },
         { id: 7, nom: 'Nathalie', ancienIndex: 400.0, nouvelIndex: 446.1, telephone: '034 07 138 54', localisation: 'Bâtiment 1 - 4e étage', conso: 0, montant: 0 }
